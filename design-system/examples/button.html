@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button Component Examples</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300&family=Geist+Mono:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../components/button.css">
+  <style>
+    body {
+      padding: var(--space-xl);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .example-section {
+      margin-bottom: var(--space-3xl);
+    }
+    .example-section h2 {
+      margin-bottom: var(--space-l);
+    }
+    .example-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-m);
+      margin-bottom: var(--space-l);
+    }
+  </style>
+</head>
+<body class="theme-dark">
+  <h1>Button Component</h1>
+
+  <section class="example-section">
+    <h2>Primary Buttons</h2>
+    <div class="example-group">
+      <button class="button">Primary Button</button>
+      <button class="button" disabled>Disabled</button>
+    </div>
+  </section>
+
+  <section class="example-section">
+    <h2>Button Variants</h2>
+    <div class="example-group">
+      <button class="button">Primary</button>
+      <button class="button button--secondary">Secondary</button>
+      <button class="button button--ghost">Ghost</button>
+    </div>
+  </section>
+
+  <section class="example-section">
+    <h2>Button Sizes</h2>
+    <div class="example-group">
+      <button class="button button--sm">Small</button>
+      <button class="button">Default</button>
+      <button class="button button--lg">Large</button>
+    </div>
+  </section>
+
+  <section class="example-section">
+    <h2>Icon Button</h2>
+    <div class="example-group">
+      <button class="button button--icon" aria-label="Theme toggle">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="4"></circle>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <section class="example-section">
+    <h2>Full Width Button</h2>
+    <div class="example-group">
+      <button class="button button--full">Full Width</button>
+    </div>
+  </section>
+
+  <section class="example-section">
+    <h2>As Link</h2>
+    <div class="example-group">
+      <a href="#" class="button">Button as Link</a>
+    </div>
+  </section>
+</body>
+</html>
+

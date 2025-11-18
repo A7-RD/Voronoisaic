@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Badge Component Examples</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300&family=Geist+Mono:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../components/badge.css">
+  <style>
+    body {
+      padding: var(--space-xl);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .example-section {
+      margin-bottom: var(--space-3xl);
+    }
+    .example-section h2 {
+      margin-bottom: var(--space-l);
+    }
+    .example-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-m);
+      align-items: center;
+    }
+  </style>
+</head>
+<body class="theme-dark">
+  <h1>Badge Component</h1>
+
+  <section class="example-section">
+    <h2>Badge Variants</h2>
+    <div class="example-group">
+      <span class="badge badge--primary">Primary</span>
+      <span class="badge badge--secondary">Secondary</span>
+      <span class="badge badge--muted">Muted</span>
+    </div>
+  </section>
+
+  <section class="example-section">
+    <h2>Badge Sizes</h2>
+    <div class="example-group">
+      <span class="badge badge--primary badge--sm">Small</span>
+      <span class="badge badge--primary">Default</span>
+      <span class="badge badge--primary badge--lg">Large</span>
+    </div>
+  </section>
+
+  <section class="example-section">
+    <h2>Outline Badges</h2>
+    <div class="example-group">
+      <span class="badge badge--outline">Outline</span>
+      <span class="badge badge--outline badge--primary">Primary Outline</span>
+    </div>
+  </section>
+
+  <section class="example-section">
+    <h2>Badge in Context</h2>
+    <div class="example-group">
+      <span>Notifications</span>
+      <span class="badge badge--primary">5</span>
+    </div>
+    <div class="example-group">
+      <span>Status:</span>
+      <span class="badge badge--secondary">Active</span>
+    </div>
+  </section>
+</body>
+</html>
+

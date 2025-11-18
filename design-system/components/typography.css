@@ -1,0 +1,126 @@
+/* Typography Component - Additional text utilities */
+
+.text {
+  margin: 0;
+  color: var(--theme-text);
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+}
+
+.text--muted {
+  color: var(--theme-text-muted);
+}
+
+.text--subtle {
+  color: var(--theme-text-subtle);
+}
+
+.text--mono {
+  font-family: var(--font-family-mono);
+  font-weight: var(--font-weight-semibold);
+}
+
+.text--light {
+  font-weight: var(--font-weight-light);
+}
+
+.text--normal {
+  font-weight: var(--font-weight-normal);
+}
+
+/* Text Sizes - Dynamic Weight System: smaller text gets heavier */
+.text--xs {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+}
+
+.text--sm {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.text--base {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+}
+
+.text--lg {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-normal);
+}
+
+.text--xl {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-normal);
+}
+
+.text--2xl {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-normal);
+}
+
+.text--3xl {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-normal);
+}
+
+.text--4xl {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-normal);
+}
+
+/* Text Alignment */
+.text--left {
+  text-align: left;
+}
+
+.text--center {
+  text-align: center;
+}
+
+.text--right {
+  text-align: right;
+}
+
+/* Link Styles */
+.link {
+  color: var(--theme-text);
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  text-underline-position: from-font;
+  cursor: pointer;
+  transition: color var(--transition-base);
+}
+
+.link:hover {
+  color: var(--theme-text-muted);
+}
+
+.link--muted {
+  color: var(--theme-text-muted);
+}
+
+.link--muted:hover {
+  color: var(--theme-text);
+}
+
+/* Label Styles */
+.label {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-base);
+  color: var(--theme-text);
+  margin: 0;
+}
+
+.label--sm {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.label--muted {
+  color: var(--theme-text-muted);
+}
+

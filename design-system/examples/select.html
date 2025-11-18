@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Component Examples</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300&family=Geist+Mono:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../components/select.css">
+  <style>
+    body {
+      padding: var(--space-xl);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .example-section {
+      margin-bottom: var(--space-3xl);
+    }
+    .example-section h2 {
+      margin-bottom: var(--space-l);
+    }
+  </style>
+</head>
+<body class="theme-dark">
+  <h1>Select Component</h1>
+
+  <section class="example-section">
+    <h2>Basic Select</h2>
+    <div class="select-group">
+      <label class="select-group__label" for="select-basic">Choose Option</label>
+      <div class="select">
+        <select id="select-basic">
+          <option value="option1">Option 1</option>
+          <option value="option2">Option 2</option>
+          <option value="option3">Option 3</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <section class="example-section">
+    <h2>Select Sizes</h2>
+    <div class="select-group">
+      <label class="select-group__label" for="select-sm">Small</label>
+      <div class="select select--sm">
+        <select id="select-sm">
+          <option>Small Select</option>
+          <option>Option 2</option>
+        </select>
+      </div>
+    </div>
+    <div class="select-group">
+      <label class="select-group__label" for="select-default">Default</label>
+      <div class="select">
+        <select id="select-default">
+          <option>Default Select</option>
+          <option>Option 2</option>
+        </select>
+      </div>
+    </div>
+    <div class="select-group">
+      <label class="select-group__label" for="select-lg">Large</label>
+      <div class="select select--lg">
+        <select id="select-lg">
+          <option>Large Select</option>
+          <option>Option 2</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <section class="example-section">
+    <h2>Disabled State</h2>
+    <div class="select-group">
+      <label class="select-group__label" for="select-disabled">Disabled</label>
+      <div class="select" disabled>
+        <select id="select-disabled" disabled>
+          <option>Disabled Select</option>
+        </select>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
+

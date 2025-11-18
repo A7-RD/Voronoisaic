@@ -1,0 +1,73 @@
+/* Badge Component */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-xs);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.badge--primary {
+  background: var(--theme-button-bg);
+  color: var(--theme-button-text);
+}
+
+.badge--secondary {
+  background: var(--theme-surface-alt);
+  color: var(--theme-text);
+}
+
+.badge--muted {
+  background: var(--theme-border);
+  color: var(--theme-text-muted);
+}
+
+/* Badge Sizes */
+.badge--sm {
+  padding: 1px 6px;
+  font-size: 10px;
+}
+
+.badge--lg {
+  padding: 4px 12px;
+  font-size: var(--font-size-sm);
+}
+
+/* Badge Variants */
+.badge--outline {
+  background: transparent;
+  border: 1px solid var(--theme-text);
+  color: var(--theme-text);
+}
+
+.badge--outline.badge--primary {
+  border-color: var(--theme-button-bg);
+  color: var(--theme-button-bg);
+}
+
+/* High Contrast Mode Overrides */
+body.theme-high-contrast .badge {
+  background: var(--theme-active-bg);
+  color: var(--theme-active-text);
+  border: 1px solid var(--theme-active-border);
+}
+
+body.theme-high-contrast .badge--secondary,
+body.theme-high-contrast .badge--muted {
+  background: var(--theme-active-bg);
+  color: var(--theme-active-text);
+}
+
+body.theme-high-contrast .badge--outline,
+body.theme-high-contrast .badge--outline.badge--primary {
+  background: transparent;
+  color: var(--theme-text);
+  border: 1px solid var(--theme-border);
+}
+

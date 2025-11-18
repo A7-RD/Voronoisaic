@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slider Component Examples</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300&family=Geist+Mono:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../components/slider.css">
+  <style>
+    body {
+      padding: var(--space-xl);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .example-section {
+      margin-bottom: var(--space-3xl);
+    }
+    .example-section h2 {
+      margin-bottom: var(--space-l);
+    }
+  </style>
+</head>
+<body class="theme-dark">
+  <h1>Slider Component</h1>
+
+  <section class="example-section">
+    <h2>Basic Slider</h2>
+    <div class="slider-group">
+      <label class="slider-group__label" for="slider-basic">Value: <span id="slider-value">50</span></label>
+      <div class="slider-track-container">
+        <input type="range" id="slider-basic" class="slider" min="0" max="100" value="50">
+      </div>
+    </div>
+  </section>
+
+  <section class="example-section">
+    <h2>Slider Sizes</h2>
+    <div class="slider-group">
+      <label class="slider-group__label" for="slider-sm">Small</label>
+      <div class="slider-track-container">
+        <input type="range" id="slider-sm" class="slider slider--sm" min="0" max="100" value="50">
+      </div>
+    </div>
+    <div class="slider-group">
+      <label class="slider-group__label" for="slider-default">Default</label>
+      <div class="slider-track-container">
+        <input type="range" id="slider-default" class="slider" min="0" max="100" value="50">
+      </div>
+    </div>
+    <div class="slider-group">
+      <label class="slider-group__label" for="slider-lg">Large</label>
+      <div class="slider-track-container">
+        <input type="range" id="slider-lg" class="slider slider--lg" min="0" max="100" value="50">
+      </div>
+    </div>
+  </section>
+
+  <section class="example-section">
+    <h2>Disabled State</h2>
+    <div class="slider-group">
+      <label class="slider-group__label" for="slider-disabled">Disabled</label>
+      <div class="slider-track-container">
+        <input type="range" id="slider-disabled" class="slider" min="0" max="100" value="50" disabled>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Update slider progress fill for WebKit browsers
+    function updateSliderProgress(slider) {
+      const min = parseFloat(slider.min) || 0;
+      const max = parseFloat(slider.max) || 100;
+      const value = parseFloat(slider.value);
+      const percentage = ((value - min) / (max - min)) * 100;
+      slider.style.setProperty('--slider-progress', percentage + '%');
+    }
+
+    // Initialize all sliders on page load
+    document.querySelectorAll('.slider').forEach(function(slider) {
+      updateSliderProgress(slider);
+      slider.addEventListener('input', function() {
+        updateSliderProgress(slider);
+      });
+    });
+
+    // Update basic slider display value
+    document.getElementById('slider-basic').addEventListener('input', function(e) {
+      document.getElementById('slider-value').textContent = e.target.value;
+    });
+  </script>
+</body>
+</html>
+

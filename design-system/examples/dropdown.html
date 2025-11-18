@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dropdown Component Examples</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300&family=Geist+Mono:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../components/dropdown.css">
+  <link rel="stylesheet" href="../components/button.css">
+  <style>
+    body {
+      padding: var(--space-xl);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .example-section {
+      margin-bottom: var(--space-3xl);
+    }
+    .example-section h2 {
+      margin-bottom: var(--space-l);
+    }
+  </style>
+</head>
+<body class="theme-dark">
+  <h1>Dropdown Component</h1>
+
+  <section class="example-section">
+    <h2>Basic Dropdown</h2>
+    <div class="dropdown">
+      <button class="dropdown__trigger" onclick="this.nextElementSibling.classList.toggle('dropdown__menu--open')">
+        Menu <span>▼</span>
+      </button>
+      <div class="dropdown__menu">
+        <button class="dropdown__item">Option 1</button>
+        <button class="dropdown__item">Option 2</button>
+        <button class="dropdown__item">Option 3</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="example-section">
+    <h2>Dropdown with Button Trigger</h2>
+    <div class="dropdown dropdown--button">
+      <button class="dropdown__trigger" onclick="this.nextElementSibling.classList.toggle('dropdown__menu--open')">
+        Actions
+      </button>
+      <div class="dropdown__menu">
+        <button class="dropdown__item">Edit</button>
+        <button class="dropdown__item">Delete</button>
+        <div class="dropdown__divider"></div>
+        <button class="dropdown__item">Share</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="example-section">
+    <h2>Right Aligned Dropdown</h2>
+    <div class="dropdown" style="margin-left: auto; display: inline-block;">
+      <button class="dropdown__trigger" onclick="this.nextElementSibling.classList.toggle('dropdown__menu--open')">
+        Menu <span>▼</span>
+      </button>
+      <div class="dropdown__menu dropdown__menu--right">
+        <button class="dropdown__item">Option 1</button>
+        <button class="dropdown__item">Option 2</button>
+        <button class="dropdown__item">Option 3</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="example-section">
+    <h2>Disabled Item</h2>
+    <div class="dropdown">
+      <button class="dropdown__trigger" onclick="this.nextElementSibling.classList.toggle('dropdown__menu--open')">
+        Menu <span>▼</span>
+      </button>
+      <div class="dropdown__menu">
+        <button class="dropdown__item">Enabled</button>
+        <button class="dropdown__item dropdown__item--disabled">Disabled</button>
+        <button class="dropdown__item">Enabled</button>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
+

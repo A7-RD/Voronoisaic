@@ -1,0 +1,112 @@
+/* Select Component */
+
+.select-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+  min-width: 0;
+}
+
+.select-group__label {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-base);
+  color: var(--theme-text);
+  margin: 0;
+}
+
+.select {
+  display: flex;
+  align-items: center;
+  background: var(--theme-surface-alt);
+  border-radius: var(--radius-active);
+  height: 24px;
+  padding: 0 var(--space-m);
+  position: relative;
+  transition: background var(--transition-base);
+}
+
+.select select {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  color: var(--theme-text);
+  font-family: var(--font-family-mono);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  appearance: none;
+  padding: 0;
+  outline: none;
+}
+
+.select select:focus {
+  outline: none;
+}
+
+.select select option {
+  background: var(--theme-surface);
+  color: var(--theme-text);
+}
+
+.select::after {
+  content: '';
+  position: absolute;
+  right: var(--space-m);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid var(--theme-text);
+  pointer-events: none;
+}
+
+.select:hover {
+  background: var(--theme-surface);
+}
+
+.select:focus-within {
+  background: var(--theme-surface);
+}
+
+.select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.select:disabled select {
+  cursor: not-allowed;
+}
+
+/* Select Sizes */
+.select--sm {
+  height: 20px;
+  padding: 0 var(--space-s);
+}
+
+.select--sm select {
+  font-size: var(--font-size-xs);
+}
+
+.select--lg {
+  height: 32px;
+  padding: 0 var(--space-l);
+}
+
+.select--lg select {
+  font-size: var(--font-size-base);
+}
+
+/* High Contrast Mode Overrides */
+body.theme-high-contrast .select {
+  border: 1px solid var(--theme-border);
+}
+
+body.theme-high-contrast .select:focus-within {
+  background: var(--theme-active-bg);
+  border-color: var(--theme-active-border);
+}
+

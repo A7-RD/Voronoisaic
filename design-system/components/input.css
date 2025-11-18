@@ -1,0 +1,200 @@
+/* Input Component */
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+}
+
+.input-group__label {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-base);
+  color: var(--theme-text);
+  margin: 0;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  background: var(--theme-surface-alt);
+  border-radius: var(--radius-active);
+  height: 24px;
+  padding: 0 var(--space-m);
+  width: 100%;
+  border: none;
+  font-family: var(--font-family-mono);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  color: var(--theme-text);
+  outline: none;
+  transition: background var(--transition-base), color var(--transition-base);
+}
+
+.input:hover {
+  background: var(--theme-surface-alt);
+  color: var(--theme-text);
+}
+
+.input:active {
+  background: var(--theme-surface-alt);
+  color: var(--theme-text);
+}
+
+.input:focus {
+  background: var(--theme-surface-alt);
+  color: var(--theme-text);
+}
+
+.input::placeholder {
+  color: var(--theme-text-subtle);
+}
+
+.input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Number Input with Controls */
+.input-number {
+  display: flex;
+  align-items: center;
+  background: var(--theme-surface-alt);
+  border-radius: var(--radius-active);
+  height: 24px;
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.input-number__button {
+  background: var(--theme-surface-alt);
+  border: none;
+  color: var(--theme-text);
+  font-family: var(--font-family-mono);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  padding: 0;
+  flex: 0 0 28px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-base);
+}
+
+.input-number__button:hover {
+  background: var(--theme-border);
+}
+
+.input-number__input {
+  flex: 1 1 auto;
+  min-width: 0;
+  background: none;
+  border: none;
+  color: var(--theme-text);
+  font-family: var(--font-family-mono);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  text-align: center;
+  outline: none;
+  padding: 0 4px;
+}
+
+.input-number__input::-webkit-outer-spin-button,
+.input-number__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input-number__input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* Textarea */
+.textarea {
+  display: block;
+  width: 100%;
+  min-height: 80px;
+  padding: var(--space-m);
+  background: var(--theme-surface-alt);
+  border: none;
+  border-radius: var(--radius-active);
+  font-family: var(--font-family-mono);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  color: var(--theme-text);
+  outline: none;
+  resize: vertical;
+  transition: background var(--transition-base), color var(--transition-base);
+}
+
+.textarea:hover {
+  background: var(--theme-surface-alt);
+  color: var(--theme-text);
+}
+
+.textarea:active {
+  background: var(--theme-surface-alt);
+  color: var(--theme-text);
+}
+
+.textarea:focus {
+  background: var(--theme-surface-alt);
+  color: var(--theme-text);
+}
+
+.textarea::placeholder {
+  color: var(--theme-text-subtle);
+}
+
+.textarea:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* High Contrast Mode Overrides */
+body.theme-high-contrast .input,
+body.theme-high-contrast .textarea,
+body.theme-high-contrast .input-number {
+  border: 1px solid var(--theme-border);
+}
+
+body.theme-high-contrast .input:hover,
+body.theme-high-contrast .textarea:hover {
+  background: var(--theme-active-bg);
+  color: var(--theme-active-text);
+  border-color: var(--theme-active-border);
+}
+
+body.theme-high-contrast .input:active,
+body.theme-high-contrast .textarea:active {
+  background: var(--theme-active-bg);
+  color: var(--theme-active-text);
+  border-color: var(--theme-active-border);
+}
+
+body.theme-high-contrast .input:focus,
+body.theme-high-contrast .textarea:focus,
+body.theme-high-contrast .input-number:focus-within {
+  background: var(--theme-active-bg);
+  color: var(--theme-active-text);
+  border-color: var(--theme-active-border);
+  outline: 1px solid var(--theme-active-border);
+}
+
+/* Input Sizes */
+.input--sm {
+  height: 20px;
+  padding: 0 var(--space-s);
+  font-size: var(--font-size-xs);
+}
+
+.input--lg {
+  height: 32px;
+  padding: 0 var(--space-l);
+  font-size: var(--font-size-base);
+}
+

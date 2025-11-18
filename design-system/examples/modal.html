@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modal Component Examples</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300&family=Geist+Mono:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../components/modal.css">
+  <link rel="stylesheet" href="../components/button.css">
+  <style>
+    body {
+      padding: var(--space-xl);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .example-section {
+      margin-bottom: var(--space-3xl);
+    }
+    .example-section h2 {
+      margin-bottom: var(--space-l);
+    }
+    .modal-backdrop {
+      display: none;
+    }
+    .modal-backdrop--open {
+      display: flex;
+    }
+  </style>
+</head>
+<body class="theme-dark">
+  <h1>Modal Component</h1>
+
+  <section class="example-section">
+    <h2>Basic Modal</h2>
+    <button class="button" onclick="document.getElementById('modal1').classList.add('modal-backdrop--open')">Open Modal</button>
+    
+    <div id="modal1" class="modal-backdrop" onclick="if(event.target === this) this.classList.remove('modal-backdrop--open')">
+      <div class="modal" onclick="event.stopPropagation()">
+        <div class="modal__header">
+          <h3 class="modal__title">Modal Title</h3>
+          <button class="modal__close" onclick="document.getElementById('modal1').classList.remove('modal-backdrop--open')" aria-label="Close">×</button>
+        </div>
+        <div class="modal__body">
+          <p>This is the modal body content. You can put any content here.</p>
+        </div>
+        <div class="modal__footer">
+          <button class="button button--secondary" onclick="document.getElementById('modal1').classList.remove('modal-backdrop--open')">Cancel</button>
+          <button class="button" onclick="document.getElementById('modal1').classList.remove('modal-backdrop--open')">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="example-section">
+    <h2>Modal Sizes</h2>
+    <div style="display: flex; gap: var(--space-m);">
+      <button class="button" onclick="document.getElementById('modal-sm').classList.add('modal-backdrop--open')">Small</button>
+      <button class="button" onclick="document.getElementById('modal-default').classList.add('modal-backdrop--open')">Default</button>
+      <button class="button" onclick="document.getElementById('modal-lg').classList.add('modal-backdrop--open')">Large</button>
+    </div>
+    
+    <div id="modal-sm" class="modal-backdrop" onclick="if(event.target === this) this.classList.remove('modal-backdrop--open')">
+      <div class="modal modal--small" onclick="event.stopPropagation()">
+        <div class="modal__header">
+          <h3 class="modal__title">Small Modal</h3>
+          <button class="modal__close" onclick="document.getElementById('modal-sm').classList.remove('modal-backdrop--open')">×</button>
+        </div>
+        <div class="modal__body">
+          <p>Small modal content.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal-default" class="modal-backdrop" onclick="if(event.target === this) this.classList.remove('modal-backdrop--open')">
+      <div class="modal" onclick="event.stopPropagation()">
+        <div class="modal__header">
+          <h3 class="modal__title">Default Modal</h3>
+          <button class="modal__close" onclick="document.getElementById('modal-default').classList.remove('modal-backdrop--open')">×</button>
+        </div>
+        <div class="modal__body">
+          <p>Default modal content.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal-lg" class="modal-backdrop" onclick="if(event.target === this) this.classList.remove('modal-backdrop--open')">
+      <div class="modal modal--large" onclick="event.stopPropagation()">
+        <div class="modal__header">
+          <h3 class="modal__title">Large Modal</h3>
+          <button class="modal__close" onclick="document.getElementById('modal-lg').classList.remove('modal-backdrop--open')">×</button>
+        </div>
+        <div class="modal__body">
+          <p>Large modal content with more space.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
+

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table Component Examples</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300&family=Geist+Mono:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../components/table.css">
+  <link rel="stylesheet" href="../components/button.css">
+  <style>
+    body {
+      padding: var(--space-xl);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .example-section {
+      margin-bottom: var(--space-3xl);
+    }
+    .example-section h2 {
+      margin-bottom: var(--space-l);
+    }
+  </style>
+</head>
+<body class="theme-dark">
+  <h1>Table Component</h1>
+
+  <section class="example-section">
+    <h2>Basic Table</h2>
+    <div class="table-container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>John Doe</td>
+            <td>john@example.com</td>
+            <td>Admin</td>
+            <td>
+              <div class="table__actions">
+                <button class="button button--sm">Edit</button>
+                <button class="button button--sm button--secondary">Delete</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Jane Smith</td>
+            <td>jane@example.com</td>
+            <td>User</td>
+            <td>
+              <div class="table__actions">
+                <button class="button button--sm">Edit</button>
+                <button class="button button--sm button--secondary">Delete</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Bob Johnson</td>
+            <td>bob@example.com</td>
+            <td>User</td>
+            <td>
+              <div class="table__actions">
+                <button class="button button--sm">Edit</button>
+                <button class="button button--sm button--secondary">Delete</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="example-section">
+    <h2>Striped Table</h2>
+    <div class="table-container">
+      <table class="table table--striped">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Stock</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Product A</td>
+            <td>$19.99</td>
+            <td>50</td>
+          </tr>
+          <tr>
+            <td>Product B</td>
+            <td>$29.99</td>
+            <td>30</td>
+          </tr>
+          <tr>
+            <td>Product C</td>
+            <td>$39.99</td>
+            <td>20</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="example-section">
+    <h2>Compact Table</h2>
+    <div class="table-container">
+      <table class="table table--compact">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Item 1</td>
+            <td>Active</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Item 2</td>
+            <td>Inactive</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</body>
+</html>
+

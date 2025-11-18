@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voronoisaic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@200..600&family=Geist+Mono:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="design-system/design-system.css">
+  <style>
+    body {
+      margin: 0;
+      padding: var(--space-xl);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .app-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xl);
+    }
+    
+    .left-column {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-m);
+      flex: 0 0 auto;
+    }
+    
+    .right-column {
+      flex: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+    
+    @media (min-width: 1024px) {
+      .app-container {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: var(--space-m);
+      }
+      
+      .left-column {
+        width: 400px;
+        flex-shrink: 0;
+      }
+      
+      .right-column {
+        flex: 1;
+        position: sticky;
+        top: var(--space-xl);
+        max-height: calc(100vh - var(--space-xl) * 2);
+        overflow: auto;
+        justify-content: flex-start;
+      }
+    }
+    
+    .card__title {
+      font-size: 4.5rem;
+      font-weight: var(--font-weight-light);
+      letter-spacing: -0.04em;
+      font-family: "Times New Roman", Times, serif !important;
+      transform: scaleX(0.9);
+      transform-origin: left;
+      line-height: .70;
+    }
+    
+    .controls-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-l);
+      margin-bottom: var(--space-xl);
+    }
+    
+    .button-group {
+      display: flex;
+      gap: var(--space-m);
+      flex-wrap: wrap;
+    }
+    
+    canvas {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    /* Theme toggle switch - fixed bottom left */
+    .theme-switch {
+      position: fixed;
+      bottom: var(--space-xl);
+      left: var(--space-xl);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: var(--space-s);
+    }
+    
+    .theme-switch__label {
+      font-family: var(--font-family-sans);
+      font-size: var(--font-size-sm);
+      color: var(--theme-text);
+      cursor: pointer;
+      user-select: none;
+    }
+    
+    .theme-switch__toggle-wrapper {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+    
+    .theme-switch__toggle {
+      position: relative;
+      width: 96px;
+      height: 48px;
+      background: var(--theme-surface-alt);
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: background var(--transition-base);
+      border: 1px solid var(--theme-surface-alt);
+      display: block;
+    }
+    
+    .theme-switch__toggle:hover {
+      background: var(--theme-border);
+    }
+    
+    .theme-switch__toggle::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 4px;
+      width: 40px;
+      height: 40px;
+      background: var(--theme-button-bg);
+      border-radius: var(--radius-full);
+      transform: translateY(-50%);
+      transition: transform var(--transition-base);
+    }
+    
+    .theme-switch input[type="checkbox"]:checked + .theme-switch__toggle::after {
+      transform: translateX(48px) translateY(-50%);
+    }
+    
+    .theme-switch input[type="checkbox"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+      pointer-events: none;
+    }
+    
+    .file-input-label {
+      display: inline-block;
+      padding: var(--space-m) var(--space-l);
+      background: var(--theme-surface-alt);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: background var(--transition-base);
+      font-family: var(--font-family-sans);
+      font-size: var(--font-size-base);
+      color: var(--theme-text);
+    }
+    
+    .file-input-label:hover {
+      background: var(--theme-surface);
+    }
+    
+    .button--outline {
+      background: transparent;
+      border: 1px solid var(--theme-border);
+      color: var(--theme-text);
+      border-radius: var(--radius-button-active);
+    }
+    
+    .button--outline:hover {
+      background: var(--theme-surface-alt);
+      border-color: var(--theme-text);
+    }
+    
+    .button svg {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    
+    /* Make all buttons 24px tall */
+    .button {
+      height: 24px;
+      min-height: 24px;
+      padding: 0 var(--space-l);
+    }
+    
+    .info-text {
+      color: var(--theme-text-muted);
+      font-size: var(--font-size-sm);
+      margin-top: 0;
+    }
+    
+
+    /* Moth Mode Styles */
+    .theme-switch__moth {
+      position: absolute;
+      width: 60px;
+      height: auto;
+      transition: all var(--transition-base);
+      pointer-events: none;
+      
+      /* Light Mode (Default) */
+      z-index: -1;
+      /* Center on track: (96px - 60px) / 2 = 18px */
+      left: 18px;
+      /* Align bottom with bottom of track */
+      bottom: 0;
+      opacity: 0; /* Hidden by default in light mode */
+      
+      /* Drop Shadow */
+      filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 1));
+    }
+
+    /* Light Mode Hover - Peek out */
+    /* Move up by track height (48px) so bottom aligns with top of track */
+    .theme-switch__toggle-wrapper:hover .theme-switch__moth {
+      transform: translateY(-48px);
+      opacity: 1; /* Fade in on hover */
+    }
+
+    /* Dark Mode - Sitting on top */
+    .theme-switch input[type="checkbox"]:checked ~ .theme-switch__moth {
+      z-index: -1; /* Behind the switch */
+      /* Same horizontal position as light mode (centered) */
+      left: 18px;
+      /* Same vertical position as light mode hover (bottom aligned to top of track) */
+      bottom: 48px;
+      top: auto;
+      
+      /* Reset transforms to prevent jumping */
+      transform: translate(0, 0);
+      opacity: 1; /* Always visible in dark mode */
+    }
+
+    /* Dark Mode Hover - Vibrate */
+    .theme-switch__toggle-wrapper:hover input[type="checkbox"]:checked ~ .theme-switch__moth {
+      animation: moth-vibrate 0.1s infinite;
+    }
+
+    @keyframes moth-vibrate {
+      0% { transform: translate(0, 0); }
+      25% { transform: translate(0, 1px); }
+      75% { transform: translate(0, 3px); }
+      100% { transform: translate(0, 0); }
+    }
+  </style>
+</head>
+<body class="theme-light">
+  <div class="app-container">
+    <div class="left-column">
+      <!-- 1. Title and Intro Card -->
+      <div class="card">
+        <div class="card__header">
+          <h1 class="card__title">Voronoisaic</h1>
+        </div>
+        <div class="card__body">
+          <p class="info-text">Upload an image, adjust the settings, and click Process Image to create a Voronoi mosaic.</p>
+        </div>
+      </div>
+      
+      <!-- 2. Upload Card -->
+      <div class="card">
+        <div class="card__body">
+          <div class="input-group">
+            <label class="input-group__label" for="url-input">1. Image URL</label>
+            <div style="display: flex; align-items: center; gap: var(--space-s);">
+              <input type="url" id="url-input" class="input" placeholder="Enter image URL" style="flex: 1;">
+              <button id="load-url-btn" class="button button--sm" type="button" title="Load from URL">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="23 4 23 10 17 10"></polyline>
+                  <polyline points="1 20 1 14 7 14"></polyline>
+                  <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+          
+          <div class="input-group">
+            <label class="input-group__label">2. Upload Image</label>
+            <div style="display: flex; align-items: center; gap: var(--space-m);">
+              <input type="file" id="image-input" accept="image/*" style="display: none;">
+              <button id="upload-btn" class="button" type="button">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: var(--space-s);">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="17 8 12 3 7 8"></polyline>
+                  <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                Choose File
+              </button>
+              <span id="file-name" class="info-text" style="margin: 0;"></span>
+            </div>
+          </div>
+          
+          <div class="input-group">
+            <label class="input-group__label">3. Paste from Clipboard</label>
+            <div style="color: var(--theme-text); font-size: var(--font-size-base);">
+              Press <kbd style="background: var(--theme-bg); color: var(--theme-text); padding: 2px 6px; border-radius: var(--radius-sm); font-family: var(--font-family-mono); font-size: var(--font-size-xs); font-weight: var(--font-weight-bold);">⌘+V</kbd> / <kbd style="background: var(--theme-bg); color: var(--theme-text); padding: 2px 6px; border-radius: var(--radius-sm); font-family: var(--font-family-mono); font-size: var(--font-size-xs); font-weight: var(--font-weight-bold);">Ctrl+V</kbd> to paste an image
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 3. Controls Card -->
+      <div class="card">
+        <div class="card__body">
+          <div class="controls-grid">
+            <div class="slider-group">
+              <label class="slider-group__label" for="points-input">Number of Points: <span id="points-display">2000</span></label>
+              <div class="slider-track-container">
+                <input type="range" id="points-input" class="slider" min="100" max="6000" step="100" value="2000">
+              </div>
+            </div>
+            
+            <div class="slider-group">
+              <label class="slider-group__label" for="smoothness-input">Smoothness: <span id="smoothness-display">7x7</span></label>
+              <div class="slider-track-container">
+                <input type="range" id="smoothness-input" class="slider" min="1" max="9" step="2" value="7">
+              </div>
+            </div>
+            
+            <div class="input-group">
+              <label class="input-group__label" for="thickness-input">Line Thickness (px)</label>
+              <input type="number" id="thickness-input" class="input" value="3" min="0" max="10" step="0.5">
+            </div>
+          </div>
+          
+          <div class="button-group">
+            <button id="process-btn" class="button" disabled>Process Image</button>
+            <button id="download-btn" class="button button--secondary" disabled>Download</button>
+            <button id="copy-svg-btn" class="button button--secondary" disabled>Copy SVG</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 4. Canvas (no card wrapper) -->
+    <div class="right-column">
+      <canvas id="canvas"></canvas>
+    </div>
+  </div>
+  
+  <!-- Theme toggle switch - fixed bottom left -->
+  <div class="theme-switch">
+    <label class="theme-switch__toggle-wrapper" for="theme-toggle">
+      <input type="checkbox" id="theme-toggle" aria-label="Toggle theme">
+      <span class="theme-switch__toggle"></span>
+      <img src="MothMode.png" alt="Moth Mode" class="theme-switch__moth">
+    </label>
+  </div>
+  
+  <script src="app.js"></script>
+</body>
+</html>
+

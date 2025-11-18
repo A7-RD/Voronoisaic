@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typography Component Examples</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300&family=Geist+Mono:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../components/typography.css">
+  <style>
+    body {
+      padding: var(--space-xl);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .example-section {
+      margin-bottom: var(--space-3xl);
+    }
+    .example-section h2 {
+      margin-bottom: var(--space-l);
+    }
+  </style>
+</head>
+<body class="theme-dark">
+  <h1>Typography Component</h1>
+
+  <section class="example-section">
+    <h2>Text Variants</h2>
+    <p class="text">Default text</p>
+    <p class="text text--muted">Muted text</p>
+    <p class="text text--subtle">Subtle text</p>
+  </section>
+
+  <section class="example-section">
+    <h2>Text Sizes</h2>
+    <p class="text text--xs">Extra Small (xs)</p>
+    <p class="text text--sm">Small (sm)</p>
+    <p class="text text--base">Base (default)</p>
+    <p class="text text--lg">Large (lg)</p>
+    <p class="text text--xl">Extra Large (xl)</p>
+    <p class="text text--2xl">2XL</p>
+    <p class="text text--3xl">3XL</p>
+    <p class="text text--4xl">4XL</p>
+  </section>
+
+  <section class="example-section">
+    <h2>Text Alignment</h2>
+    <p class="text text--left">Left aligned text</p>
+    <p class="text text--center">Center aligned text</p>
+    <p class="text text--right">Right aligned text</p>
+  </section>
+
+  <section class="example-section">
+    <h2>Mono Font</h2>
+    <p class="text text--mono">Monospace font text</p>
+  </section>
+
+  <section class="example-section">
+    <h2>Links</h2>
+    <p>
+      <a href="#" class="link">Default link</a>
+    </p>
+    <p>
+      <a href="#" class="link link--muted">Muted link</a>
+    </p>
+  </section>
+
+  <section class="example-section">
+    <h2>Labels</h2>
+    <label class="label">Default label</label>
+    <label class="label label--sm">Small label</label>
+    <label class="label label--muted">Muted label</label>
+  </section>
+</body>
+</html>
+

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkbox Component Examples</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300&family=Geist+Mono:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../components/checkbox.css">
+  <style>
+    body {
+      padding: var(--space-xl);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .example-section {
+      margin-bottom: var(--space-3xl);
+    }
+    .example-section h2 {
+      margin-bottom: var(--space-l);
+    }
+    .example-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-m);
+    }
+  </style>
+</head>
+<body class="theme-dark">
+  <h1>Checkbox Component</h1>
+
+  <section class="example-section">
+    <h2>Basic Checkbox</h2>
+    <div class="example-group">
+      <label class="checkbox-group">
+        <input type="checkbox">
+        <span>Checkbox Label</span>
+      </label>
+      <label class="checkbox-group">
+        <input type="checkbox" checked>
+        <span>Checked</span>
+      </label>
+    </div>
+  </section>
+
+  <section class="example-section">
+    <h2>Checkbox Sizes</h2>
+    <div class="example-group">
+      <label class="checkbox-group checkbox-group--small">
+        <input type="checkbox">
+        <span>Small</span>
+      </label>
+      <label class="checkbox-group">
+        <input type="checkbox">
+        <span>Default</span>
+      </label>
+      <label class="checkbox-group checkbox-group--large">
+        <input type="checkbox">
+        <span>Large</span>
+      </label>
+    </div>
+  </section>
+
+  <section class="example-section">
+    <h2>Radio Buttons</h2>
+    <div class="example-group">
+      <label class="radio-group">
+        <input type="radio" name="radio-example">
+        <span>Option 1</span>
+      </label>
+      <label class="radio-group">
+        <input type="radio" name="radio-example" checked>
+        <span>Option 2 (Selected)</span>
+      </label>
+      <label class="radio-group">
+        <input type="radio" name="radio-example">
+        <span>Option 3</span>
+      </label>
+    </div>
+  </section>
+
+  <section class="example-section">
+    <h2>Disabled State</h2>
+    <div class="example-group">
+      <label class="checkbox-group">
+        <input type="checkbox" disabled>
+        <span>Disabled</span>
+      </label>
+    </div>
+  </section>
+</body>
+</html>
+

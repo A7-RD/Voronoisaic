@@ -1,0 +1,103 @@
+/* Base Styles - Resets and foundational styles */
+
+@import './tokens.css';
+
+/* ============================================
+   Reset & Box Sizing
+   ============================================ */
+* {
+  box-sizing: border-box;
+}
+
+/* ============================================
+   Body & Root Styles
+   ============================================ */
+body {
+  margin: 0;
+  padding: var(--space-l);
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  background: var(--theme-bg);
+  color: var(--theme-text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   Typography Base
+   ============================================ */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-tight);
+  color: var(--theme-text);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+h1 {
+  font-size: var(--font-size-4xl);
+}
+
+h2 {
+  font-size: var(--font-size-3xl);
+}
+
+h3 {
+  font-size: var(--font-size-2xl);
+}
+
+h4 {
+  font-size: var(--font-size-xl);
+}
+
+h5 {
+  font-size: var(--font-size-lg);
+}
+
+h6 {
+  font-size: var(--font-size-base);
+}
+
+p {
+  margin: 0;
+  color: var(--theme-text);
+}
+
+a {
+  color: var(--theme-text);
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  text-underline-position: from-font;
+  transition: color var(--transition-base);
+}
+
+a:hover {
+  color: var(--theme-text-muted);
+}
+
+/* ============================================
+   Responsive Typography
+   ============================================ */
+@media (max-width: 768px) {
+  body {
+    padding: var(--space-l);
+  }
+
+  h1 {
+    font-size: var(--font-size-3xl);
+  }
+
+  h2 {
+    font-size: var(--font-size-2xl);
+    letter-spacing: -1.2px;
+  }
+
+  h3 {
+    font-size: var(--font-size-xl);
+  }
+}
+

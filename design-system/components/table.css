@@ -1,0 +1,109 @@
+/* Table Component */
+
+.table-container {
+  overflow-x: auto;
+  border: 1px solid var(--theme-text);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--prime-dark);
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-base);
+}
+
+.table th {
+  background: var(--prime-dark);
+  color: var(--theme-text);
+  font-weight: var(--font-weight-normal);
+  text-align: left;
+  padding: var(--space-m) var(--space-l);
+  border: 1px solid var(--theme-text);
+  border-top: none;
+  border-left: none;
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+.table th:first-child {
+  border-left: 1px solid var(--theme-text);
+}
+
+.table td {
+  padding: var(--space-m) var(--space-l);
+  border: 1px solid var(--theme-text);
+  border-top: none;
+  border-left: none;
+  background: var(--prime-dark);
+  color: var(--theme-text);
+}
+
+.table td:first-child {
+  border-left: 1px solid var(--theme-text);
+}
+
+.table thead th {
+  border-top: 1px solid var(--theme-text);
+}
+
+.table tbody tr:hover {
+  background: var(--theme-surface-alt);
+}
+
+.table tbody tr:hover td {
+  background: var(--theme-surface-alt);
+}
+
+.table--striped tbody tr:nth-child(even) {
+  background: var(--prime-dark);
+}
+
+.table--striped tbody tr:nth-child(even) td {
+  background: var(--prime-dark);
+}
+
+.table--striped tbody tr:nth-child(even):hover {
+  background: var(--theme-border);
+}
+
+.table--striped tbody tr:nth-child(even):hover td {
+  background: var(--theme-border);
+}
+
+.table--compact th,
+.table--compact td {
+  padding: var(--space-s) var(--space-m);
+  font-size: var(--font-size-sm);
+}
+
+.table--spacious th,
+.table--spacious td {
+  padding: var(--space-l) var(--space-xl);
+}
+
+/* Table Actions */
+.table__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .table-container {
+    border: none;
+  }
+
+  .table {
+    font-size: var(--font-size-sm);
+  }
+
+  .table th,
+  .table td {
+    padding: var(--space-s) var(--space-m);
+  }
+}
+

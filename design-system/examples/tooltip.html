@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tooltip Component Examples</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300&family=Geist+Mono:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../components/tooltip.css">
+  <style>
+    body {
+      padding: var(--space-xl);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .example-section {
+      margin-bottom: var(--space-3xl);
+    }
+    .example-section h2 {
+      margin-bottom: var(--space-l);
+    }
+    .example-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xl);
+      align-items: center;
+      min-height: 200px;
+    }
+  </style>
+</head>
+<body class="theme-dark">
+  <h1>Tooltip Component</h1>
+
+  <section class="example-section">
+    <h2>Tooltip Positions</h2>
+    <div class="example-group">
+      <div class="tooltip">
+        <span class="tooltip__trigger">Hover me (Top)</span>
+        <div class="tooltip__content">This is a tooltip</div>
+      </div>
+
+      <div class="tooltip tooltip--bottom">
+        <span class="tooltip__trigger">Hover me (Bottom)</span>
+        <div class="tooltip__content">This is a tooltip</div>
+      </div>
+
+      <div class="tooltip tooltip--left">
+        <span class="tooltip__trigger">Hover me (Left)</span>
+        <div class="tooltip__content">This is a tooltip</div>
+      </div>
+
+      <div class="tooltip tooltip--right">
+        <span class="tooltip__trigger">Hover me (Right)</span>
+        <div class="tooltip__content">This is a tooltip</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="example-section">
+    <h2>Multiline Tooltip</h2>
+    <div class="tooltip">
+      <span class="tooltip__trigger">Hover for multiline</span>
+      <div class="tooltip__content tooltip__content--multiline">
+        This is a longer tooltip that can span multiple lines and provide more detailed information.
+      </div>
+    </div>
+  </section>
+
+  <section class="example-section">
+    <h2>Tooltip on Button</h2>
+    <div class="tooltip">
+      <button class="tooltip__trigger" style="background: var(--theme-button-bg); color: var(--theme-button-text); border: none; padding: 4px 12px; border-radius: 9999px; cursor: pointer;">
+        Button with Tooltip
+      </button>
+      <div class="tooltip__content">Click to perform action</div>
+    </div>
+  </section>
+</body>
+</html>
+

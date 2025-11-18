@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Input Component Examples</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300&family=Geist+Mono:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../components/input.css">
+  <style>
+    body {
+      padding: var(--space-xl);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .example-section {
+      margin-bottom: var(--space-3xl);
+    }
+    .example-section h2 {
+      margin-bottom: var(--space-l);
+    }
+  </style>
+</head>
+<body class="theme-dark">
+  <h1>Input Component</h1>
+
+  <section class="example-section">
+    <h2>Text Input</h2>
+    <div class="input-group">
+      <label class="input-group__label" for="text-input">Label</label>
+      <input type="text" id="text-input" class="input" placeholder="Enter text...">
+    </div>
+  </section>
+
+  <section class="example-section">
+    <h2>Input Sizes</h2>
+    <div class="input-group">
+      <label class="input-group__label" for="input-sm">Small</label>
+      <input type="text" id="input-sm" class="input input--sm" placeholder="Small input">
+    </div>
+    <div class="input-group">
+      <label class="input-group__label" for="input-default">Default</label>
+      <input type="text" id="input-default" class="input" placeholder="Default input">
+    </div>
+    <div class="input-group">
+      <label class="input-group__label" for="input-lg">Large</label>
+      <input type="text" id="input-lg" class="input input--lg" placeholder="Large input">
+    </div>
+  </section>
+
+  <section class="example-section">
+    <h2>Number Input with Controls</h2>
+    <div class="input-group">
+      <label class="input-group__label" for="number-input">Number</label>
+      <div class="input-number">
+        <button type="button" class="input-number__button">-</button>
+        <input type="number" id="number-input" class="input-number__input" value="0" min="0" max="100">
+        <button type="button" class="input-number__button">+</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="example-section">
+    <h2>Textarea</h2>
+    <div class="input-group">
+      <label class="input-group__label" for="textarea">Message</label>
+      <textarea id="textarea" class="textarea" placeholder="Enter your message..."></textarea>
+    </div>
+  </section>
+
+  <section class="example-section">
+    <h2>Disabled State</h2>
+    <div class="input-group">
+      <label class="input-group__label" for="input-disabled">Disabled Input</label>
+      <input type="text" id="input-disabled" class="input" placeholder="Disabled" disabled>
+    </div>
+  </section>
+</body>
+</html>
+

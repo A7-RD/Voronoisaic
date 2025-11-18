@@ -1,0 +1,118 @@
+/* Button Component */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-base);
+  line-height: 1;
+  border: none;
+  border-radius: var(--radius-button-active);
+  padding: 4px 12px;
+  cursor: pointer;
+  transition: background var(--transition-base), color var(--transition-base);
+  background: var(--theme-button-bg);
+  color: var(--theme-button-text);
+  text-decoration: none;
+  user-select: none;
+}
+
+.button:hover {
+  background: var(--theme-button-muted);
+  color: var(--theme-button-muted-text);
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+.button:disabled,
+.button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Button Variants */
+.button--secondary {
+  background: var(--theme-surface-alt);
+  color: var(--theme-text);
+}
+
+.button--secondary:hover {
+  background: var(--theme-border);
+  color: var(--theme-text);
+}
+
+.button--ghost {
+  background: transparent;
+  color: var(--theme-text-subtle);
+}
+
+.button--ghost:hover {
+  background: transparent;
+  color: var(--theme-text);
+}
+
+.button--icon {
+  padding: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-full);
+}
+
+.button--icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Button Sizes */
+.button--sm {
+  padding: 2px 8px;
+  font-size: var(--font-size-sm);
+}
+
+.button--lg {
+  padding: 8px 16px;
+  font-size: var(--font-size-lg);
+}
+
+/* Button Full Width */
+.button--full {
+  width: 100%;
+}
+
+/* High Contrast Mode Overrides */
+body.theme-high-contrast .button {
+  background: var(--theme-active-bg);
+  color: var(--theme-active-text);
+  border: 1px solid var(--theme-active-border);
+}
+
+body.theme-high-contrast .button:hover {
+  background: var(--theme-active-text);
+  color: var(--theme-active-bg);
+  border-color: var(--theme-active-bg);
+}
+
+body.theme-high-contrast .button--secondary {
+  background: transparent;
+  color: var(--theme-button-bg);
+  border: 1px solid var(--theme-border);
+}
+
+body.theme-high-contrast .button--secondary:hover {
+  background: var(--theme-border);
+  color: var(--theme-button-text);
+  border-color: var(--theme-border);
+}
+
+body.theme-high-contrast .button:disabled,
+body.theme-high-contrast .button[disabled] {
+  opacity: 0.6;
+  color: var(--theme-active-text);
+  border-color: var(--theme-active-border);
+}
+

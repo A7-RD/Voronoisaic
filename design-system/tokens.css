@@ -1,0 +1,305 @@
+/* Design Tokens - Core design system variables */
+
+/* ============================================
+   Colors - Base Palette
+   ============================================ */
+:root {
+  /* Prime colors - base of the color system (default/stone theme) */
+  --prime-light: hsl(0, 0%, 91%);
+  --prime-dark: hsl(0, 0%, 10%);
+
+  /* Tone variations - color mixing for gradients (default/stone theme) */
+  --tone-light-1: color-mix(in srgb, var(--prime-light) 85%, var(--prime-dark) 15%);
+  --tone-light-2: color-mix(in srgb, var(--prime-light) 70%, var(--prime-dark) 30%);
+  --tone-light-3: color-mix(in srgb, var(--prime-light) 55%, var(--prime-dark) 45%);
+
+  --tone-dark-1: color-mix(in srgb, var(--prime-dark) 85%, var(--prime-light) 15%);
+  --tone-dark-2: color-mix(in srgb, var(--prime-dark) 75%, var(--prime-light) 25%);
+  --tone-dark-3: color-mix(in srgb, var(--prime-dark) 60%, var(--prime-light) 40%);
+}
+
+/* ============================================
+   Theme Variables - Dark Mode
+   ============================================ */
+body.theme-dark {
+  --theme-bg: var(--prime-dark);
+  --theme-surface: var(--tone-dark-1);
+  --theme-surface-alt: var(--tone-dark-2);
+  --theme-border: var(--tone-dark-3);
+  --theme-text: var(--prime-light);
+  --theme-text-muted: var(--tone-light-2);
+  --theme-text-subtle: var(--tone-light-3);
+  --theme-button-bg: var(--prime-light);
+  --theme-button-text: var(--prime-dark);
+  --theme-button-muted: var(--tone-light-2);
+  --theme-button-muted-text: var(--prime-dark);
+}
+
+/* ============================================
+   Theme Variables - Light Mode
+   ============================================ */
+body.theme-light {
+  --theme-bg: var(--prime-light);
+  --theme-surface: var(--tone-light-1);
+  --theme-surface-alt: var(--tone-light-2);
+  --theme-border: var(--tone-light-3);
+  --theme-text: var(--prime-dark);
+  --theme-text-muted: var(--tone-dark-2);
+  --theme-text-subtle: var(--tone-dark-3);
+  --theme-button-bg: var(--prime-dark);
+  --theme-button-text: var(--prime-light);
+  --theme-button-muted: var(--tone-dark-2);
+  --theme-button-muted-text: var(--prime-light);
+}
+
+/* ============================================
+   Theme Variables - High Contrast Mode
+   ============================================ */
+body.theme-high-contrast {
+  /* No tone mixing - pure prime colors only */
+  --theme-bg: var(--prime-dark);
+  --theme-surface: var(--prime-dark);
+  --theme-surface-alt: var(--prime-dark);
+  --theme-border: var(--prime-light);
+  --theme-text: var(--prime-light);
+  --theme-text-muted: var(--prime-light);
+  --theme-text-subtle: var(--prime-light);
+  --theme-button-bg: var(--prime-light);
+  --theme-button-text: var(--prime-dark);
+  --theme-button-muted: var(--prime-light);
+  --theme-button-muted-text: var(--prime-dark);
+  
+  /* Active/Selected state - full inversion */
+  --theme-active-bg: var(--prime-light);
+  --theme-active-text: var(--prime-dark);
+  --theme-active-border: var(--prime-dark);
+}
+
+body.theme-high-contrast.theme-light {
+  /* High contrast light mode */
+  --theme-bg: var(--prime-light);
+  --theme-surface: var(--prime-light);
+  --theme-surface-alt: var(--prime-light);
+  --theme-border: var(--prime-dark);
+  --theme-text: var(--prime-dark);
+  --theme-text-muted: var(--prime-dark);
+  --theme-text-subtle: var(--prime-dark);
+  --theme-button-bg: var(--prime-dark);
+  --theme-button-text: var(--prime-light);
+  --theme-button-muted: var(--prime-dark);
+  --theme-button-muted-text: var(--prime-light);
+  
+  /* Active/Selected state - full inversion */
+  --theme-active-bg: var(--prime-dark);
+  --theme-active-text: var(--prime-light);
+  --theme-active-border: var(--prime-light);
+}
+
+/* ============================================
+   Spacing Scale
+   ============================================ */
+:root {
+  --space-xs: 2px;
+  --space-s: 4px;
+  --space-m: 8px;
+  --space-l: 12px;
+  --space-xl: 16px;
+  --space-2xl: 24px;
+  --space-3xl: 32px;
+  --space-4xl: 48px;
+}
+
+/* ============================================
+   Typography
+   ============================================ */
+:root {
+  /* Font Families */
+  --font-family-sans: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-family-mono: 'Geist Mono', monospace;
+
+  /* Font Weights */
+  --font-weight-light: 200;
+  --font-weight-normal: 400;
+  --font-weight-medium: 400;
+  --font-weight-semibold: 500;
+  --font-weight-bold: 600;
+
+  /* Font Sizes - Harmonic Scale System */
+  /* Base size and ratio for harmonic scaling (Major Second: 1.2) */
+  --font-size-base: 14px;
+  --font-scale-ratio: 1.2;
+  
+  /* Calculated sizes using harmonic scale */
+  /* Negative steps (smaller) */
+  --font-size-xs: calc(var(--font-size-base) / (var(--font-scale-ratio) * var(--font-scale-ratio)));
+  --font-size-sm: calc(var(--font-size-base) / var(--font-scale-ratio));
+  
+  /* Base (reference point) */
+  /* --font-size-base already defined above */
+  
+  /* Positive steps (larger) */
+  --font-size-lg: calc(var(--font-size-base) * var(--font-scale-ratio));
+  --font-size-xl: calc(var(--font-size-base) * var(--font-scale-ratio) * var(--font-scale-ratio));
+  --font-size-2xl: calc(var(--font-size-base) * var(--font-scale-ratio) * var(--font-scale-ratio) * var(--font-scale-ratio));
+  --font-size-3xl: calc(var(--font-size-base) * var(--font-scale-ratio) * var(--font-scale-ratio) * var(--font-scale-ratio) * var(--font-scale-ratio));
+  --font-size-4xl: calc(var(--font-size-base) * var(--font-scale-ratio) * var(--font-scale-ratio) * var(--font-scale-ratio) * var(--font-scale-ratio) * var(--font-scale-ratio));
+
+  /* Line Heights */
+  --line-height-tight: 1;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+
+  /* Letter Spacing */
+  --letter-spacing-tight: -1.5px;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.4px;
+}
+
+/* ============================================
+   Border Radius
+   ============================================ */
+:root {
+  --radius-none: 0;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 50%;
+  --radius-pill: 9999px;
+  
+  /* Active radius settings - separate for buttons and other elements */
+  --radius-active: var(--radius-sm);
+  --radius-button-active: var(--radius-pill);
+}
+
+/* ============================================
+   Transitions & Animations
+   ============================================ */
+:root {
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.2s ease;
+  --transition-slow: 0.3s ease;
+}
+
+/* ============================================
+   Layout
+   ============================================ */
+:root {
+  --container-max-width: 1200px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+}
+
+/* ============================================
+   Z-Index Scale
+   ============================================ */
+:root {
+  --z-base: 0;
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+  --z-customizer: 1080;
+}
+
+/* ============================================
+   Theme Color Definitions (9 options)
+   ============================================ */
+:root {
+  /* Default/Stone theme */
+  --theme-color-primary: hsl(90, 2%, 25%);
+  --theme-color-primary-light: hsl(132, 11%, 91%);
+}
+
+body.theme-zinc {
+  --prime-dark: hsl(240, 5%, 26%);
+  --prime-light: hsl(240, 5%, 96%);
+  --tone-light-1: color-mix(in srgb, var(--prime-light) 85%, var(--prime-dark) 15%);
+  --tone-light-2: color-mix(in srgb, var(--prime-light) 70%, var(--prime-dark) 30%);
+  --tone-light-3: color-mix(in srgb, var(--prime-light) 55%, var(--prime-dark) 45%);
+  --tone-dark-1: color-mix(in srgb, var(--prime-dark) 85%, var(--prime-light) 15%);
+  --tone-dark-2: color-mix(in srgb, var(--prime-dark) 75%, var(--prime-light) 25%);
+  --tone-dark-3: color-mix(in srgb, var(--prime-dark) 60%, var(--prime-light) 40%);
+}
+
+body.theme-slate {
+  --prime-dark: hsl(222, 47%, 11%);
+  --prime-light: hsl(210, 40%, 98%);
+  --tone-light-1: color-mix(in srgb, var(--prime-light) 85%, var(--prime-dark) 15%);
+  --tone-light-2: color-mix(in srgb, var(--prime-light) 70%, var(--prime-dark) 30%);
+  --tone-light-3: color-mix(in srgb, var(--prime-light) 55%, var(--prime-dark) 45%);
+  --tone-dark-1: color-mix(in srgb, var(--prime-dark) 85%, var(--prime-light) 15%);
+  --tone-dark-2: color-mix(in srgb, var(--prime-dark) 75%, var(--prime-light) 25%);
+  --tone-dark-3: color-mix(in srgb, var(--prime-dark) 60%, var(--prime-light) 40%);
+}
+
+body.theme-red {
+  --prime-dark: hsl(0, 65%, 15%);
+  --prime-light: hsl(0, 50%, 97%);
+  --tone-light-1: color-mix(in srgb, var(--prime-light) 85%, var(--prime-dark) 15%);
+  --tone-light-2: color-mix(in srgb, var(--prime-light) 70%, var(--prime-dark) 30%);
+  --tone-light-3: color-mix(in srgb, var(--prime-light) 55%, var(--prime-dark) 45%);
+  --tone-dark-1: color-mix(in srgb, var(--prime-dark) 85%, var(--prime-light) 15%);
+  --tone-dark-2: color-mix(in srgb, var(--prime-dark) 75%, var(--prime-light) 25%);
+  --tone-dark-3: color-mix(in srgb, var(--prime-dark) 60%, var(--prime-light) 40%);
+}
+
+body.theme-rose {
+  --prime-dark: hsl(346, 77%, 20%);
+  --prime-light: hsl(346, 50%, 97%);
+  --tone-light-1: color-mix(in srgb, var(--prime-light) 85%, var(--prime-dark) 15%);
+  --tone-light-2: color-mix(in srgb, var(--prime-light) 70%, var(--prime-dark) 30%);
+  --tone-light-3: color-mix(in srgb, var(--prime-light) 55%, var(--prime-dark) 45%);
+  --tone-dark-1: color-mix(in srgb, var(--prime-dark) 85%, var(--prime-light) 15%);
+  --tone-dark-2: color-mix(in srgb, var(--prime-dark) 75%, var(--prime-light) 25%);
+  --tone-dark-3: color-mix(in srgb, var(--prime-dark) 60%, var(--prime-light) 40%);
+}
+
+body.theme-orange {
+  --prime-dark: hsl(25, 95%, 20%);
+  --prime-light: hsl(25, 60%, 96%);
+  --tone-light-1: color-mix(in srgb, var(--prime-light) 85%, var(--prime-dark) 15%);
+  --tone-light-2: color-mix(in srgb, var(--prime-light) 70%, var(--prime-dark) 30%);
+  --tone-light-3: color-mix(in srgb, var(--prime-light) 55%, var(--prime-dark) 45%);
+  --tone-dark-1: color-mix(in srgb, var(--prime-dark) 85%, var(--prime-light) 15%);
+  --tone-dark-2: color-mix(in srgb, var(--prime-dark) 75%, var(--prime-light) 25%);
+  --tone-dark-3: color-mix(in srgb, var(--prime-dark) 60%, var(--prime-light) 40%);
+}
+
+body.theme-green {
+  --prime-dark: hsl(142, 76%, 15%);
+  --prime-light: hsl(142, 50%, 97%);
+  --tone-light-1: color-mix(in srgb, var(--prime-light) 85%, var(--prime-dark) 15%);
+  --tone-light-2: color-mix(in srgb, var(--prime-light) 70%, var(--prime-dark) 30%);
+  --tone-light-3: color-mix(in srgb, var(--prime-light) 55%, var(--prime-dark) 45%);
+  --tone-dark-1: color-mix(in srgb, var(--prime-dark) 85%, var(--prime-light) 15%);
+  --tone-dark-2: color-mix(in srgb, var(--prime-dark) 75%, var(--prime-light) 25%);
+  --tone-dark-3: color-mix(in srgb, var(--prime-dark) 60%, var(--prime-light) 40%);
+}
+
+body.theme-blue {
+  --prime-dark: hsl(221, 83%, 20%);
+  --prime-light: hsl(214, 60%, 97%);
+  --tone-light-1: color-mix(in srgb, var(--prime-light) 85%, var(--prime-dark) 15%);
+  --tone-light-2: color-mix(in srgb, var(--prime-light) 70%, var(--prime-dark) 30%);
+  --tone-light-3: color-mix(in srgb, var(--prime-light) 55%, var(--prime-dark) 45%);
+  --tone-dark-1: color-mix(in srgb, var(--prime-dark) 85%, var(--prime-light) 15%);
+  --tone-dark-2: color-mix(in srgb, var(--prime-dark) 75%, var(--prime-light) 25%);
+  --tone-dark-3: color-mix(in srgb, var(--prime-dark) 60%, var(--prime-light) 40%);
+}
+
+body.theme-violet {
+  --prime-dark: hsl(262, 83%, 20%);
+  --prime-light: hsl(262, 50%, 98%);
+  --tone-light-1: color-mix(in srgb, var(--prime-light) 85%, var(--prime-dark) 15%);
+  --tone-light-2: color-mix(in srgb, var(--prime-light) 70%, var(--prime-dark) 30%);
+  --tone-light-3: color-mix(in srgb, var(--prime-light) 55%, var(--prime-dark) 45%);
+  --tone-dark-1: color-mix(in srgb, var(--prime-dark) 85%, var(--prime-light) 15%);
+  --tone-dark-2: color-mix(in srgb, var(--prime-dark) 75%, var(--prime-light) 25%);
+  --tone-dark-3: color-mix(in srgb, var(--prime-dark) 60%, var(--prime-light) 40%);
+}
+

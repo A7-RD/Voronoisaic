@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Component Examples</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300&family=Geist+Mono:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../components/card.css">
+  <link rel="stylesheet" href="../components/button.css">
+  <style>
+    body {
+      padding: var(--space-xl);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .example-section {
+      margin-bottom: var(--space-3xl);
+    }
+    .example-section h2 {
+      margin-bottom: var(--space-l);
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-l);
+    }
+  </style>
+</head>
+<body class="theme-dark">
+  <h1>Card Component</h1>
+
+  <section class="example-section">
+    <h2>Basic Card</h2>
+    <div class="card">
+      <div class="card__header">
+        <h3 class="card__title">Card Title</h3>
+      </div>
+      <div class="card__body">
+        <p>This is the card body content. It can contain any HTML elements.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="example-section">
+    <h2>Card with Footer</h2>
+    <div class="card">
+      <div class="card__header">
+        <h3 class="card__title">Card with Footer</h3>
+      </div>
+      <div class="card__body">
+        <p>Card content goes here.</p>
+      </div>
+      <div class="card__footer">
+        <span>Footer content</span>
+        <button class="button">Action</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="example-section">
+    <h2>Card Variants</h2>
+    <div class="card-grid">
+      <div class="card card--compact">
+        <div class="card__header">
+          <h3 class="card__title">Compact</h3>
+        </div>
+        <div class="card__body">
+          <p>Compact padding variant.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card__header">
+          <h3 class="card__title">Default</h3>
+        </div>
+        <div class="card__body">
+          <p>Default padding.</p>
+        </div>
+      </div>
+      <div class="card card--spacious">
+        <div class="card__header">
+          <h3 class="card__title">Spacious</h3>
+        </div>
+        <div class="card__body">
+          <p>Spacious padding variant.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="example-section">
+    <h2>Card Styles</h2>
+    <div class="card-grid">
+      <div class="card card--bordered">
+        <div class="card__header">
+          <h3 class="card__title">Bordered</h3>
+        </div>
+        <div class="card__body">
+          <p>Card with border.</p>
+        </div>
+      </div>
+      <div class="card card--interactive">
+        <div class="card__header">
+          <h3 class="card__title">Interactive</h3>
+        </div>
+        <div class="card__body">
+          <p>Hover to see effect.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="example-section">
+    <h2>Surface</h2>
+    <div class="surface">
+      <p>Simple surface component without card structure.</p>
+    </div>
+    <div class="surface surface--alt" style="margin-top: var(--space-m);">
+      <p>Surface with alt background.</p>
+    </div>
+  </section>
+</body>
+</html>
+

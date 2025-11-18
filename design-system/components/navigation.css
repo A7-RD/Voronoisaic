@@ -1,0 +1,109 @@
+/* Navigation Component */
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-l);
+  padding: var(--space-m) var(--space-l);
+  background: var(--theme-surface);
+  border-bottom: 1px solid var(--theme-text);
+}
+
+.nav--sticky {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+}
+
+.nav--fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-fixed);
+}
+
+.nav__brand {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-light);
+  font-size: var(--font-size-xl);
+  color: var(--theme-text);
+  text-decoration: none;
+  letter-spacing: var(--letter-spacing-tight);
+  margin-right: auto;
+}
+
+.nav__brand:hover {
+  color: var(--theme-text);
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav__link {
+  color: var(--theme-text-muted);
+  text-decoration: none;
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-base);
+  padding: var(--space-s) var(--space-m);
+  border-radius: var(--radius-active);
+  transition: color var(--transition-base), background var(--transition-base);
+}
+
+.nav__link:hover {
+  color: var(--theme-text);
+  background: var(--theme-surface-alt);
+}
+
+.nav__link--active {
+  color: var(--theme-active-text, var(--theme-text));
+  background: var(--theme-active-bg, var(--theme-surface-alt));
+  border: 1px solid var(--theme-active-border, transparent);
+}
+
+.nav__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  margin-left: auto;
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+  .nav {
+    flex-wrap: wrap;
+    gap: var(--space-m);
+  }
+
+  .nav__links {
+    order: 3;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-s);
+  }
+
+  .nav__link {
+    display: block;
+    width: 100%;
+  }
+
+  .nav__actions {
+    margin-left: 0;
+  }
+}
+
+/* High Contrast Mode Overrides */
+body.theme-high-contrast .nav__link:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+

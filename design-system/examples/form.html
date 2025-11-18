@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Component Examples</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300&family=Geist+Mono:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../components/form.css">
+  <link rel="stylesheet" href="../components/input.css">
+  <link rel="stylesheet" href="../components/select.css">
+  <link rel="stylesheet" href="../components/checkbox.css">
+  <link rel="stylesheet" href="../components/button.css">
+  <style>
+    body {
+      padding: var(--space-xl);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .example-section {
+      margin-bottom: var(--space-3xl);
+    }
+    .example-section h2 {
+      margin-bottom: var(--space-l);
+    }
+  </style>
+</head>
+<body class="theme-dark">
+  <h1>Form Component</h1>
+
+  <section class="example-section">
+    <h2>Basic Form</h2>
+    <form class="form">
+      <div class="form__section">
+        <h3 class="form__section-title">Personal Information</h3>
+        <div class="input-group">
+          <label class="input-group__label" for="name">Name</label>
+          <input type="text" id="name" class="input" placeholder="Enter your name">
+          <span class="form__help">This is help text</span>
+        </div>
+        <div class="input-group">
+          <label class="input-group__label" for="email">Email</label>
+          <input type="email" id="email" class="input" placeholder="Enter your email">
+        </div>
+      </div>
+      <div class="form__actions">
+        <button type="button" class="button button--secondary">Cancel</button>
+        <button type="submit" class="button">Submit</button>
+      </div>
+    </form>
+  </section>
+
+  <section class="example-section">
+    <h2>Form Row Layout</h2>
+    <form class="form">
+      <div class="form__row">
+        <div class="input-group">
+          <label class="input-group__label" for="first-name">First Name</label>
+          <input type="text" id="first-name" class="input">
+        </div>
+        <div class="input-group">
+          <label class="input-group__label" for="last-name">Last Name</label>
+          <input type="text" id="last-name" class="input">
+        </div>
+      </div>
+      <div class="form__actions form__actions--space-between">
+        <button type="button" class="button button--secondary">Cancel</button>
+        <button type="submit" class="button">Submit</button>
+      </div>
+    </form>
+  </section>
+
+  <section class="example-section">
+    <h2>Form with Error</h2>
+    <form class="form">
+      <div class="input-group">
+        <label class="input-group__label" for="error-input">Email</label>
+        <input type="email" id="error-input" class="input" value="invalid-email">
+        <span class="form__error">Please enter a valid email address</span>
+      </div>
+    </form>
+  </section>
+
+  <section class="example-section">
+    <h2>Field Group</h2>
+    <div class="field-group">
+      <label class="field-group__label" for="field-input">Label</label>
+      <input type="text" id="field-input" class="input">
+    </div>
+    <div class="field-group field-group--inline">
+      <label class="field-group__label" for="inline-input">Inline Label</label>
+      <input type="text" id="inline-input" class="input">
+    </div>
+  </section>
+</body>
+</html>
+
